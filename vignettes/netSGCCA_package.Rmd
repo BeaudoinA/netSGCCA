@@ -1,0 +1,86 @@
+---
+title: "netSGCCA_package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{netSGCCA_package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup}
+library(netSGCCA)
+```
+
+
+netSGCCA is a multiblock method for the tudy of the relationship between blocks and allows the integration of an information network reflecting the interactions among the variables within a given data block.
+
+This package has three principal functions. 
+  Laplacian_matrix which returns a Laplacian Matrix and a filter Laplacian Matrix 
+
+  netSGCCA which performs netSGCCA
+
+  explo_all creates a search grid. From the dataframe it returns, you can explore the results to define the optimal parameters. 
+  
+  Once the optimal parameters are defined, you can apply the function Laplacian_matrix to define the filtered Laplacian matrix, and then the netSGCCA function with the optimal parameters and the filtered laplacian matrix. Finally, you have weight vectors and components of each block and you can create network for example.  
+
+Because of the Laplacian matrix, this method doesn't apply on data in large dimension.
+
+
+## Examples with simulated data 
+
+# Blocks and associated graphs
+```{r setup}
+W <- matrix(rnorm(200, mean = 9, sd = 3), nrow=10)
+g1 <- sample_grg(ncol(W),0.4)
+
+Q <-  matrix(rnorm(100, mean = 5, sd = 3), nrow=10)
+g2 <-  sample_grg(ncol(Q),0.3)
+
+P <- matrix(rnorm(150, mean = 2, sd = 1), nrow=10)
+g3 <-  sample_grg(ncol(P),0.6)
+
+R= matrix(rnorm(30, 0), nrow=10)
+```
+
+
+# No block without a graph
+```{r}
+data= list(W, Q, P)
+
+design=matrix(c(0,1,1,1,0,1,1,1,0), ncol=3)
+
+iter_max=100
+
+lambda <- c(0, 0.5, 0.9998)
+
+sigma <- c(0.3, 0.5)
+
+gamma=rep(0.5, 3)
+s <- list(c(2, 0.5*sqrt(ncol(W))),c(2.4, 0.5*sqrt(ncol(Q))), c(1.4,0.5*sqrt(ncol(P))))
+
+epsilon= 1e-10
+
+graphs <- list(g1, g2, g3)
+
+explor_param(data, graphs, lambda, sigma, s)
+
+```
+
+
+# One block without a graph 
+```{r setup}
+data= list(W, R, Q, P)
+
+gamma=rep(0.5, length(data))
+
+design=matrix(c(0,1,1,1, 1,0,1,1, 1,1,0, 1, 1,1,1,0), ncol=length(data))
+
+s <- list(c(2, 0.5*sqrt(ncol(W)), 6, 10),sqrt(ncol(R)) , c(4, 3.6, 0.5*sqrt(ncol(Q))), c(1.4,0.5*sqrt(ncol(P))))
+
+graphs <- list(g1, NA, g2, g3)
+
+explor_param(data, graphs, lambda, sigma, s)
+```
+
+
+
