@@ -8,7 +8,6 @@ and most particulary on the SGCCA (Sparse Generalized Canonical Correlation Anal
 and choosing the most pertinent variables and on the GraphNet penalty, which allows the integration of an information network reflecting the interactions among 
 the variables within a given data block. One of the objectives of the method is to remove the “high-frequency” components induced by the GraphNet penalty, meaning 
 sharp variations of the loadings between variables that are neighbors in the reference network. 
-This method is applied on three data blocks: two genes expression blocks and one clinical data block. 
 
 
 <h3> Installation </h3>
