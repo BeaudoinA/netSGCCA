@@ -1,6 +1,5 @@
-# netSGCCA
+# netSGCCA package
 
-#netSGCCA package
 
 ## Introduction ##
 
