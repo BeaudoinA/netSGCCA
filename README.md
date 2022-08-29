@@ -38,7 +38,7 @@ The criteria used to determine the best parameters are : <br/>
 
 We have four parameters to determine. The $\lambda$ which is the regulation parameter between SGCCA and GraphNet penalty. If $\lambda$=0, there is only sgcca so the blocks interaction and if $\lambda$=1, we have the graphnet penalty. So we want to find and intermediate $\lambda$. $s_1$ and $s_2$ are the quantity of sparsity and $\sigma$ is the eigenvalue filter in order to reduce the high frequencies and give priority to the low frequencies. Because we didn’t have variables to help us to optimize these parameters, we defined three criteria in order to choose these parameters. 
 
-Once the optimal parameters are defined, you can apply the function Laplacian_matrix to define the filtered Laplacian matrix, and then the netSGCCA function with the optimal parameters and the filtered laplacian matrix. Finally, you have weight vectors and components of each block and you can create network for example.  
+Once the optimal parameters are defined, you can apply the function Laplacian_matrix to define the filtered Laplacian matrix, and then the netSGCCA function with the optimal parameters and the filtered Laplacian matrix. Finally, you have weight vectors and components of each block and you can create networks for example.  
 
 Because of the Laplacian matrix, this method doesn't apply on data in large dimension.
 
