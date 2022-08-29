@@ -17,13 +17,13 @@ devtools::install_github("BeaudoinA/netSGCCA")
 
 ## Functions ##
 
-#netSGCCA 
+# netSGCCA 
 netSGCCA function performs netSGCCA method. It returns a list of weight vectors and the component associated with each block.
 
-#Laplacian_matrix
+# Laplacian_matrix
 Laplacian_matrix is a function which calculates the Laplacian matrix of a graph and which apply a filter (sigma) on the eigenvalues of the Laplacien matrix in order to reduce high frequencies induced by the GraphNet penalty.
 
-#explo_param 
+# explo_param 
 explor_param creates a search grid of the parameters in order to find the optimals parameters.
 This function creates a dataframe in order to test each combination of the paramaters and adds to this
 dataframe the different values of the criteria used.
