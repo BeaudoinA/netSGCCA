@@ -2,18 +2,7 @@
 % Please edit documentation in R/explor_param.R
 \name{explor_param}
 \alias{explor_param}
-\title{explor_param creates a search grid of the parameters in order to find the optimals parameters.
-This function creates a dataframe in order to test each combination of the paramaters and adds to this
-dataframe the different values of the criteria used.
-The criteria used to determine the best parameters are :
-\itemize{
-\item the sparsity (the number of zero variables),
-\item the adequacy of data (if there are blocks associated with graphs and one block without graph,
-the R2 of a PLS regression is recovered. If there are just one block associated with a graph and a
-block without a graph, it's the sum of the squared correlation between the block with a graph and the block without a graph. And in the case
-where all blocks are associated with graphs, we recovered the average of the mean variances explained by each block),
-\item the graph irregularity (The average of the weight vectors variance within communities. We use the Louvain algorithm to find communities).
-}}
+\title{explor_param}
 \usage{
 explor_param(data, graphs, gamma, lambda, sigma, s)
 }
@@ -34,7 +23,7 @@ a dataframe with a search grid and the results for the three criteria. The dataf
 Then, the user can use this dataframe to create graphics to find the optimal parameters.
 }
 \description{
-explor_param creates a search grid of the parameters in order to find the optimals parameters.
+This function creates a search grid of the parameters in order to find the optimals parameters.
 This function creates a dataframe in order to test each combination of the paramaters and adds to this
 dataframe the different values of the criteria used.
 The criteria used to determine the best parameters are :

@@ -2,13 +2,12 @@
 % Please edit documentation in R/projL1L2.R
 \name{normL1}
 \alias{normL1}
-\title{This functions perform the projection of the weight vectors on the space defined
-by the constraints in the function netSGCCA. It is used in the netSGCCA function.}
+\title{projL1L2}
 \usage{
 normL1(vec)
 }
 \description{
-This functions perform the projection of the weight vectors on the space defined
+These functions perform the projection of the weight vectors on the space defined
 by the constraints in the function netSGCCA. It is used in the netSGCCA function.
 }
 \author{

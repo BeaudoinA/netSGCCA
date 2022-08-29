@@ -1,4 +1,5 @@
-#' explor_param creates a search grid of the parameters in order to find the optimals parameters.
+#' explor_param
+#' @description This function creates a search grid of the parameters in order to find the optimals parameters.
 #' This function creates a dataframe in order to test each combination of the paramaters and adds to this
 #' dataframe the different values of the criteria used.
 #' The criteria used to determine the best parameters are :

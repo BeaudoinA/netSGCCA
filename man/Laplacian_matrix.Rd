@@ -2,8 +2,7 @@
 % Please edit documentation in R/LaplacianMatrix.R
 \name{Laplacian_matrix}
 \alias{Laplacian_matrix}
-\title{Laplacian_matrix is a function which calculates the Laplacian matrix of a graph and which apply
-a filter (sigma) on the eigenvalues of the Laplacien matrix in order to reduce high frequencies induced by the GraphNet penalty.}
+\title{Laplacian_matrix}
 \usage{
 Laplacian_matrix(graph, sigma)
 }

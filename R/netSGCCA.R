@@ -1,7 +1,7 @@
-#' netSGCCA function performs netSGCCA method which is a multiblock method for the study of the relationship
+#' netSGCCA
+#' @description netSGCCA function performs netSGCCA method which is a multiblock method for the study of the relationship
 #' between blocks and allows the integration of an information network reflecting the interactions among the variables
 #' within a given data block. It returns a list of weight vectors and the component associated with each block.
-#'
 #' @return The function netSGCCA returns a list of weight vectors and the component associated with each block.
 #'
 #' @param data is a list with all the blocks.

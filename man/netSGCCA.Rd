@@ -2,9 +2,7 @@
 % Please edit documentation in R/netSGCCA.R
 \name{netSGCCA}
 \alias{netSGCCA}
-\title{netSGCCA function performs netSGCCA method which is a multiblock method for the study of the relationship
-between blocks and allows the integration of an information network reflecting the interactions among the variables
-within a given data block. It returns a list of weight vectors and the component associated with each block.}
+\title{netSGCCA}
 \usage{
 netSGCCA(data, design, s, gamma, lambda, Laplacian_list, epsilon, iter_max)
 }

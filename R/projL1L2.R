@@ -1,4 +1,5 @@
-#' This functions perform the projection of the weight vectors on the space defined
+#' projL1L2
+#' @description These functions perform the projection of the weight vectors on the space defined
 #' by the constraints in the function netSGCCA. It is used in the netSGCCA function.
 #' @author Vincent Guillemot and Arnaud Gloaguen
 #' @export
