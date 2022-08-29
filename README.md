@@ -3,7 +3,7 @@
 
 ## Introduction ##
 
-netSGCCA is a method based on the integration of multiblock data. This method derives from framework of the Generalized Canonical Correlation Analysis, and most particulary on the SGCCA (Sparse Generalized Canonical Correlation Analysis), which allows studying the relationship between several groups of variables and choosing the most pertinent variables and on the GraphNet $^1$ penalty, which allows the integration of an information network reflecting the interactions among the variables within a given data block. One of the objectives of the method is to remove the “high-frequency” components induced by the GraphNet penalty, meaning sharp variations of the loadings between variables that are neighbors in the reference network. 
+netSGCCA is a method based on the integration of multiblock data. This method derives from framework of the Generalized Canonical Correlation Analysis, and most particulary on the SGCCA (Sparse Generalized Canonical Correlation Analysis) $^2$, which allows studying the relationship between several groups of variables and choosing the most pertinent variables and on the GraphNet $^1$ penalty, which allows the integration of an information network reflecting the interactions among the variables within a given data block. One of the objectives of the method is to remove the “high-frequency” $^3$ components induced by the GraphNet penalty, meaning sharp variations of the loadings between variables that are neighbors in the reference network. 
 
 
 ## Installation ##
@@ -45,4 +45,5 @@ Because of the Laplacian matrix, this method doesn't apply on data in large dime
 
 ## Bibliography
 $^1$ Logan Grosenick, Brad Klingenberg, Kiefer Katovich, Brian Knutson, and Jona- than E. Taylor. Interpretable whole-brain prediction analysis with GraphNet. Neu- roImage, 72 :304–321, 2013.
-
+$^2$ Arthur Tenenhaus, Cathy Philippe, Vincent Guillemot, Kim-Anh Le Cao, Jacques Grill, and Vincent Frouin. Variable selection for generalized canonical correlation analysis. Biostatistics (Oxford, England), 15(3) :569–83, jul 2014.
+$^3$ Franck Rapaport, Andrei Zinovyev, Marie Dutreix, Emmanuel Barillot, and Jean- Philippe Vert. Classification of microarray data using gene networks. BMC bioinfor- matics, 8 :35, feb 2007.
