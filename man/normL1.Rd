@@ -2,12 +2,15 @@
 % Please edit documentation in R/projL1L2.R
 \name{normL1}
 \alias{normL1}
-\title{l1 and l2 norms
-Code made by Vincent Guillemot and Arnaud Gloaguen}
+\title{This functions perform the projection of the weight vectors on the space defined
+by the constraints in the function netSGCCA. It is used in the netSGCCA function.}
 \usage{
 normL1(vec)
 }
 \description{
-l1 and l2 norms
-Code made by Vincent Guillemot and Arnaud Gloaguen
+This functions perform the projection of the weight vectors on the space defined
+by the constraints in the function netSGCCA. It is used in the netSGCCA function.
+}
+\author{
+Vincent Guillemot and Arnaud Gloaguen
 }

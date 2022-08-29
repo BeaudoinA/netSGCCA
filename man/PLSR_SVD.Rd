@@ -2,12 +2,15 @@
 % Please edit documentation in R/plsr.R
 \name{PLSR_SVD}
 \alias{PLSR_SVD}
-\title{Code from the package data4PCCAR on GitHub  https://github.com/HerveAbdi/data4PCCAR/blob/master/R/PLS_jack_svds_HA.R
-It uses for a PLS regression}
+\title{This function is used to perform a PLS regression for the adequacy of data criterion.
+Code from the package data4PCCAR on GitHub  https://github.com/HerveAbdi/data4PCCAR/blob/master/R/PLS_jack_svds_HA.R}
 \usage{
 PLSR_SVD(X, Y, nfactor, inference = TRUE, displayJack = TRUE)
 }
 \description{
+This function is used to perform a PLS regression for the adequacy of data criterion.
 Code from the package data4PCCAR on GitHub  https://github.com/HerveAbdi/data4PCCAR/blob/master/R/PLS_jack_svds_HA.R
-It uses for a PLS regression
+}
+\author{
+Hervé Abdi
 }

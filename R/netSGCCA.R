@@ -1,25 +1,29 @@
-#' netSGCCA function
-#' @return The function netSGCCA returns a list of with weight vectors of each block and the component associated with each block
+#' netSGCCA function performs netSGCCA method which is a multiblock method for the study of the relationship
+#' between blocks and allows the integration of an information network reflecting the interactions among the variables
+#' within a given data block. It returns a list of weight vectors and the component associated with each block.
+#'
+#' @return The function netSGCCA returns a list of weight vectors and the component associated with each block.
+#'
+#' @param data is a list with all the blocks.
+#' @param design is the design matrix.
 
-#' @param data is a list with all the blocks
-#' @param design is the design matrix
+#' @param s is a list of the quantity of sparsity for each block.  It is the radius of the l1 norm ball for weight vector of the each block.
+#' For blocks associated with graph, s must be strictly superior to 1. If a block is not associated with a graph, put the square root of his column number.
 
-#' @param s is a list of the quantity of sparsity for each block.  It is the radius of the l1 norm ball for weigth vector of the each block
-#' For blocks associated with graph, s must be strictly greater than 1. If a block is not associated with a graph, put the square-root of his column number
-
-#' @param gamma is a regulatory parameter between the GraphNet penalty. It's a vector with the same size of data.
+#' @param gamma is a regulatory parameter between the GraphNet penalties. It's a vector with the same size as the data list.
 
 #' @param lambda is a regulatory parameter between the interaction between blocks and the GraphNet penalty.  0<= lambda <1
 
-#' @param Laplacian_list is a list of the Laplacian matrix in the same order of data
-#' If one block doesn't have a graph, so it doesn't have a Laplacian_matrix, put a square matrix of zero of the block size
+#' @param Laplacian_list is a list of the Laplacian matrices in the same order as the data list.
+#' If one block doesn't have a graph, so it doesn't have a Laplacian matrix, put a square matrix of zeros of the same size as the block in question.
 
-#' @param epsilon is a stop condition
-#' @param iter_max is the maximal number of iteration
+#' @param epsilon is a stop condition.
+#' @param iter_max is the maximal number of iteration.
 #' @export
 
 #' @examples
 #' library(igraph)
+#' ## Data :
 #' W <- matrix(rnorm(200, mean = 9, sd = 3), nrow=10)
 #' g1 <- sample_grg(ncol(W),0.4)
 #'
@@ -31,15 +35,16 @@
 #'
 #' R= matrix(rnorm(30, 0), nrow=10)
 #'
-#' ##Laplacian Matrix
+#' ## Laplacian Matrix
 #' L= Laplacian_matrix(g1, 0.3)$Laplacian
 #' M = matrix(0, ncol=ncol(R), nrow=ncol(R))
 #' N =Laplacian_matrix(g2, 0.3)$Laplacian
 #' O =Laplacian_matrix(g3, 0.3)$Laplacian
-
+#'
+#' ## Parameters
 #' data= list(W, R, Q, P)
 #' Laplacian_list=list(L, M, N, O)
-
+#'
 #' gamma=rep(0.5, length(data))
 #' design=matrix(c(0,1,1,1, 1,0,1,1, 1,1,0, 1, 1,1,1,0), ncol=length(data))
 #' lambda=0.5
@@ -47,7 +52,7 @@
 #' graphs <- list(g1, NA, g2, g3)
 #' iter_max=100
 #' epsilon=1e-10
-
+#'
 #' netSGCCA(data, design, s, gamma, lambda, Laplacian_list, epsilon, iter_max)
 
 

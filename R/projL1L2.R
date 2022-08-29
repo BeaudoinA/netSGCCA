@@ -1,5 +1,6 @@
-#' l1 and l2 norms
-#' Code made by Vincent Guillemot and Arnaud Gloaguen
+#' This functions perform the projection of the weight vectors on the space defined
+#' by the constraints in the function netSGCCA. It is used in the netSGCCA function.
+#' @author Vincent Guillemot and Arnaud Gloaguen
 #' @export
 
 normL1 <- function(vec) {

@@ -2,24 +2,27 @@
 % Please edit documentation in R/LaplacianMatrix.R
 \name{Laplacian_matrix}
 \alias{Laplacian_matrix}
-\title{Laplacian Matrix}
+\title{Laplacian_matrix is a function which calculates the Laplacian matrix of a graph and which apply
+a filter (sigma) on the eigenvalues of the Laplacien matrix in order to reduce high frequencies induced by the GraphNet penalty.}
 \usage{
 Laplacian_matrix(graph, sigma)
 }
 \arguments{
-\item{graph}{is the graph associated with the block, the initial graph}
+\item{graph}{is the graph associated with the block, the initial graph.}
 
-\item{sigma}{is the eigenvalues filter, between 0 and 2 (Eigenvalues of the Laplacian matrix normalised are between 0 and 2)}
+\item{sigma}{is the eigenvalues filter, between 0 and 2 (Eigenvalues of the Laplacian matrix normalised are between 0 and 2).}
 }
 \value{
-This function returns the Laplacian or low frequencies Laplacian matrix associated with the choiced block.
+This function returns the Laplacian matrix and low frequencies Laplacian matrix associated with the graph of the chosen block.
 }
 \description{
-Laplacian Matrix
+Laplacian_matrix is a function which calculates the Laplacian matrix of a graph and which apply
+a filter (sigma) on the eigenvalues of the Laplacien matrix in order to reduce high frequencies induced by the GraphNet penalty.
 }
 \examples{
 library(igraph)
 W <- matrix(rnorm(200, mean = 9, sd = 3), nrow=10)
 g1 <- sample_grg(ncol(W),0.4)
+
 Laplacian_matrix(g1, 0.6)
 }

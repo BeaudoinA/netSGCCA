@@ -1,5 +1,16 @@
-#' Search of optimal parameters
-#' @return a dataframe with a search grid and the results for the three criteria.
+#' explor_param creates a search grid of the parameters in order to find the optimals parameters.
+#' This function creates a dataframe in order to test each combination of the paramaters and adds to this
+#' dataframe the different values of the criteria used.
+#' The criteria used to determine the best parameters are :
+#' - the sparsity (the number of zero variables),
+#' - the adequacy of data (if there are blocks associated with graphs and one block without graph,
+#' the R2 of a PLS regression is recovered. If there are just one block associated with a graph and a
+#' block without a graph, it's the sum of the squared correlation between the block with a graph and the block without a graph. And in the case
+#' where all blocks are associated with graphs, we recovered the average of the mean variances explained by each block),
+#' - the graph irregularity (The average of the weight vectors variance within communities. We use the Louvain algorithm to find communities).
+#'
+#' @return a dataframe with a search grid and the results for the three criteria. The dataframe is also saved in a csv file.
+#' Then, the user can use this dataframe to create graphics to find the optimal parameters.
 #'
 #' @param data is a list with all the blocks.
 #'
@@ -10,11 +21,13 @@
 #' @param sigma is a vector with different values of sigma, the eigenvalues filter,  0 <= sigma <= 2.
 #'
 #' @param s is a list of vectors of different values for the quantity of sparsity for each block. s > 1
-#' For blocks associated with graph, s must be strictly greater than 1. For a block without a graph, s=sqrt(ncol(block)).
+#' For blocks associated with graph, s must be strictly superior to 1. For a block without a graph, s=sqrt(ncol(block)).
 #' @export
 #' @importFrom dplyr %>%
 #' @examples
 #' library(igraph)
+#'
+#'  ## Data
 #' W <- matrix(rnorm(200, mean = 9, sd = 3), nrow=10)
 #' g1 <- sample_grg(ncol(W),0.4)
 #'
@@ -25,21 +38,24 @@
 #' g3 <-  sample_grg(ncol(P),0.6)
 #'
 #' R= matrix(rnorm(30, 0), nrow=10)
-#' # Example 1 (with a block without a graph)
+#'
+#' ## Example 1 (with a block without a graph)
+#' ## Parameters
 #' data= list(W, R, Q, P)
 #' graphs <- list(g1, NA, g2, g3)
 #' lambda <- c(0, 0.5, 0.7, 0.9, 0.99)
 #' gamma=rep(0.5, length(data))
 #' design=matrix(c(0,1,1,1, 1,0,1,1, 1,1,0,1, 1,1,1,0), ncol=length(data))
 #' sigma <- c(0.3, 0.5, 0.9)
-#' s <- list(c(2, 0.5*sqrt(ncol(W))),sqrt(ncol(R)), c(4, 3.6, 0.5*sqrt(ncol(Q))), c(1.4,0.5*sqrt(ncol(P))))
+#' s <- list(c(2, 0.5*sqrt(ncol(W))), sqrt(ncol(R)), c(4, 3.6, 0.5*sqrt(ncol(Q))), c(1.4,0.5*sqrt(ncol(P))))
 #' iter_max=100
 #' epsilon=1e-10
 #'
 #' explor_param(data, graphs, gamma, lambda, sigma, s)
 #'
 #'
-#' # Example 2 (all blocks have an associated graph)
+#' ## Example 2 (all blocks have an associated graph)
+#' ## Parameters
 #' data= list(W, Q, P)
 #' design=matrix(c(0,1,1,1,0,1,1,1,0), ncol=3)
 #' iter_max=100
@@ -56,7 +72,7 @@
 
 explor_param <- function(data, graphs, gamma, lambda, sigma, s){
 
-  #Build a dataframe in order to test each combinaison
+  #Build a dataframe in order to test each combination
   df <- expand.grid(lambda, sigma) %>% stats::setNames(c("lambda", "sigma"))
   kk=purrr::cross(s)
   ff=lapply(kk, rbind)
@@ -126,7 +142,7 @@ explor_param <- function(data, graphs, gamma, lambda, sigma, s){
         df[i, (length(data)*4+4)] <- sum(cor(as.numeric(netsgccacompLF[[-clini]]), data[[clini]])**2)
       }
 
-    }else   #Case with no block without a graph
+    }else   # Case where all blocks are associated with graphs
     {
       mean_varHF <- c()
       mean_varLF <- c()
@@ -165,7 +181,7 @@ explor_param <- function(data, graphs, gamma, lambda, sigma, s){
   }
 
   df=df[,apply(df, 2, function(x) !all(is.na(x)))]
-  readr::write_csv(df,"search_parameters_Simulation.csv")
+  readr::write_csv(df,"search_parameters.csv")
 
   return(df)
 

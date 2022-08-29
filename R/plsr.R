@@ -1,6 +1,6 @@
+#' This function is used to perform a PLS regression for the adequacy of data criterion.
 #' Code from the package data4PCCAR on GitHub  https://github.com/HerveAbdi/data4PCCAR/blob/master/R/PLS_jack_svds_HA.R
-#' It uses for a PLS regression
-
+#' @author Hervé Abdi
 #' @export
 
 

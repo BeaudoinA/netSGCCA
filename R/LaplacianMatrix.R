@@ -1,16 +1,17 @@
-#' Laplacian Matrix
-#' @return This function returns the Laplacian or low frequencies Laplacian matrix associated with the choiced block.
+#' Laplacian_matrix is a function which calculates the Laplacian matrix of a graph and which apply
+#' a filter (sigma) on the eigenvalues of the Laplacien matrix in order to reduce high frequencies induced by the GraphNet penalty.
+#' @return This function returns the Laplacian matrix and low frequencies Laplacian matrix associated with the graph of the chosen block.
 
-#' @param graph is the graph associated with the block, the initial graph
+#' @param graph is the graph associated with the block, the initial graph.
 #'
-#' @param sigma is the eigenvalues filter, between 0 and 2 (Eigenvalues of the Laplacian matrix normalised are between 0 and 2)
+#' @param sigma is the eigenvalues filter, between 0 and 2 (Eigenvalues of the Laplacian matrix normalised are between 0 and 2).
 #' @export
 
 #' @examples
 #' library(igraph)
 #' W <- matrix(rnorm(200, mean = 9, sd = 3), nrow=10)
 #' g1 <- sample_grg(ncol(W),0.4)
-
+#'
 #' Laplacian_matrix(g1, 0.6)
 
 
