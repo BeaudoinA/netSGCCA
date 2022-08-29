@@ -1,7 +1,7 @@
 #' explor_param
-#' @description This function creates a search grid of the parameters in order to find the optimals parameters.
-#' This function creates a dataframe in order to test each combination of the paramaters and adds to this
-#' dataframe the different values of the criteria used.
+#' @description This function creates a search grid of the parameters in order to find the optimal parameters.
+#' This function creates a data frame in order to test each combination of the parameters and adds to this
+#' data frame the different values of the criteria used.
 #' The criteria used to determine the best parameters are :
 #' - the sparsity (the number of zero variables),
 #' - the adequacy of data (if there are blocks associated with graphs and one block without graph,
@@ -10,8 +10,8 @@
 #' where all blocks are associated with graphs, we recovered the average of the mean variances explained by each block),
 #' - the graph irregularity (The average of the weight vectors variance within communities. We use the Louvain algorithm to find communities).
 #'
-#' @return a dataframe with a search grid and the results for the three criteria. The dataframe is also saved in a csv file.
-#' Then, the user can use this dataframe to create graphics to find the optimal parameters.
+#' @return a data frame with a search grid and the results for the three criteria. The dataframe is also saved in a csv file.
+#' Then, the user can use this data frame to create graphics to find the optimal parameters.
 #'
 #' @param data is a list with all the blocks.
 #'
@@ -73,7 +73,7 @@
 
 explor_param <- function(data, graphs, gamma, lambda, sigma, s){
 
-  #Build a dataframe in order to test each combination
+  #Build a data frame in order to test each combination
   df <- expand.grid(lambda, sigma) %>% stats::setNames(c("lambda", "sigma"))
   kk=purrr::cross(s)
   ff=lapply(kk, rbind)
@@ -157,7 +157,7 @@ explor_param <- function(data, graphs, gamma, lambda, sigma, s){
     names(df)[2*length(data)+3] <- "Adequacy_data_HF"
     names(df)[(length(data)*4+4)] <- "Adequacy_data_LF"
 
-    ### Graph Regularity ###
+    ### Graph Irregularity ###
     if (length(no_graph)==0){ #No block without graph
       graphs_true=graphs
       netsgcca2HF <- netsgccaHF

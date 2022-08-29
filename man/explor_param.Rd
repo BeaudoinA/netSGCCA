@@ -19,13 +19,13 @@ explor_param(data, graphs, gamma, lambda, sigma, s)
 For blocks associated with graph, s must be strictly superior to 1. For a block without a graph, s=sqrt(ncol(block)).}
 }
 \value{
-a dataframe with a search grid and the results for the three criteria. The dataframe is also saved in a csv file.
-Then, the user can use this dataframe to create graphics to find the optimal parameters.
+a data frame with a search grid and the results for the three criteria. The dataframe is also saved in a csv file.
+Then, the user can use this data frame to create graphics to find the optimal parameters.
 }
 \description{
-This function creates a search grid of the parameters in order to find the optimals parameters.
-This function creates a dataframe in order to test each combination of the paramaters and adds to this
-dataframe the different values of the criteria used.
+This function creates a search grid of the parameters in order to find the optimal parameters.
+This function creates a data frame in order to test each combination of the parameters and adds to this
+data frame the different values of the criteria used.
 The criteria used to determine the best parameters are :
 \itemize{
 \item the sparsity (the number of zero variables),

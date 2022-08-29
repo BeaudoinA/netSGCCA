@@ -16,7 +16,7 @@ This function returns the Laplacian matrix and low frequencies Laplacian matrix 
 }
 \description{
 Laplacian_matrix is a function which calculates the Laplacian matrix of a graph and which apply
-a filter (sigma) on the eigenvalues of the Laplacien matrix in order to reduce high frequencies induced by the GraphNet penalty.
+a filter (sigma) on the eigenvalues of the Laplacian matrix in order to reduce high frequencies induced by the GraphNet penalty.
 }
 \examples{
 library(igraph)
