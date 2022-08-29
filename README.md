@@ -29,7 +29,7 @@ This function creates a dataframe in order to test each combination of the param
 dataframe the different values of the criteria used.
 The criteria used to determine the best parameters are : <br/>
     - the sparsity (the number of zero variables),<br/>
-    - the adequacy of data (if there are blocks associated with graphs and one block without graph the R2 of a PLS regression is recovered. If there are just one block associated with a graph and a block without a graph, it's the sum of the squared correlation between the block with a graph and the block without a graph. And in the case where all blocks are associated with graphs, we recovered the average of the mean variances explained by each block),<br/>
+    - the adequacy of data (if there are blocks associated with graphs and one block without graph the R^2 of a PLS regression is recovered. If there are just one block associated with a graph and a block without a graph, it's the sum of the squared correlation between the block with a graph and the block without a graph. And in the case where all blocks are associated with graphs, we recovered the average of the mean variances explained by each block),<br/>
     - the graph irregularity (The average of the weight vectors variance within communities. We use the Louvain algorithm to find communities).
 
 
