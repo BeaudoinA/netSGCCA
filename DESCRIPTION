@@ -3,7 +3,7 @@ Title: Addition of interaction networks for the study of multi-block data.
 Version: 0.0.0.9000
 Authors : 
     Beaudoin Annabelle & Vincent Guillemot & Hervé Abdi & Cathy Philippe 
-Maintainer : ?
+Maintainer : Vincent Guillemot <vincent.guillemot@pasteur.fr>
 Description: This package allows the study of the relationship between blocks of variables and allows the integration of an information network reflecting the interactions between the variables in a given block of data.
 License: GPL-2
 Encoding: UTF-8
