@@ -44,6 +44,6 @@ Because of the Laplacian matrix, this method doesn't apply on data in large dime
 
 
 ## Bibliography
-$^1$ Logan Grosenick, Brad Klingenberg, Kiefer Katovich, Brian Knutson, and Jona- than E. Taylor. Interpretable whole-brain prediction analysis with GraphNet. Neu- roImage, 72 :304–321, 2013.
+$^1$ Logan Grosenick, Brad Klingenberg, Kiefer Katovich, Brian Knutson, and Jonathan E. Taylor. Interpretable whole-brain prediction analysis with GraphNet. NeuroImage, 72 :304–321, 2013.
 $^2$ Arthur Tenenhaus, Cathy Philippe, Vincent Guillemot, Kim-Anh Le Cao, Jacques Grill, and Vincent Frouin. Variable selection for generalized canonical correlation analysis. Biostatistics (Oxford, England), 15(3) :569–83, jul 2014.
-$^3$ Franck Rapaport, Andrei Zinovyev, Marie Dutreix, Emmanuel Barillot, and Jean- Philippe Vert. Classification of microarray data using gene networks. BMC bioinfor- matics, 8 :35, feb 2007.
+$^3$ Franck Rapaport, Andrei Zinovyev, Marie Dutreix, Emmanuel Barillot, and Jean- Philippe Vert. Classification of microarray data using gene networks. BMC bioinformatics, 8 :35, feb 2007.
