@@ -25,7 +25,7 @@ Laplacian_matrix is a function which calculates the Laplacian matrix of a graph 
 
 ### explo_param 
 explor_param creates a search grid of the parameters in order to find the optimals parameters.
-This function creates a dataframe in order to test each combination of the paramaters and adds to this
+This function creates a dataframe in order to test each combination of the parameters and adds to this
 dataframe the different values of the criteria used.
 The criteria used to determine the best parameters are : <br/>
     - the sparsity (the number of zero variables),<br/>
